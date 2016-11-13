@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style type="text/css">
+        #box {
+            display: inline-block;
+            background-color: #38a2e5;
+            margin: 0 auto;
+            padding: 5px;
+        }
+
+        #box input {
+            background-color: #cbcbcb;
+            display: inline-block;
+            width: 30px;
+            font-size: 16px;
+            margin: 5px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <input type="text" value="2"/>分
+    <input type="text" value="2"/>秒
+    <input type="text" value="2"/>毫秒
+    <button class="swi">开始</button>
+    <button class="reset">重置</button>
+</div>
+</body>
+<script type="text/javascript">
+    var box=document.getElementById('box');
+    /*    var displayBox=document.getElementsByTagName('input'),
+     but=document.getElementsByTagName('button');
+     function time(){
+     displayBox[2].value=parseInt(displayBox[2].value)-10;
+     if (displayBox[2].value<0){
+     displayBox[2].value=parseInt(displayBox[2].value)+1000;
+     displayBox[1].value=parseInt(displayBox[1].value)-1;
+     if(displayBox[1].value<0){
+     displayBox[1].value=59;
+     displayBox[0].value=parseInt(displayBox[0].value)-1
+     }
+     }
+     }*/
+
+    var mun = new Date('2016/9/21 20:10:00');
+    //console.log(mun);   //测试时间
+    setInterval(fu, 20);  //每20毫秒执行一次函数
+    function fu() {
+        var dan = new Date();
+        var num = parseInt((  mun.getTime()-dan.getTime()));
+/*        console.log(dan.getTime());
+        console.log(dan.getTime());
+        console.log(num);*/
+
+        box.innerHTML='剩余'+parseInt(num/1000/3600/24)+'天'+parseInt(num/1000/3600%24)+'小时'
+                +parseInt(num/1000/60%60)+'分'+parseInt(num/1000%60)+'秒'+parseInt(num%1000)+'毫秒';
+    }
+
+
+
+/*    var mun= new Date('2016/9/21 17:40:00');
+    console.log(mun);
+    setInterval(fu,20);
+    function fu(){
+        var dan = new Date();
+        var num = parseInt((mun.getTime()-dan.getTime()));
+
+
+
+        box.innerHTML ='剩余'+parseInt(num/1000/3600/24)+'天'
+                +parseInt(num/1000/3600%24)+'小时'
+                +parseInt(num/1000/60%60)+'分'
+                +parseInt(num/1000%60)+'秒'
+                +parseInt(num%1000)+'毫秒';
+
+
+
+    }*/
+
+</script>
+</html>
